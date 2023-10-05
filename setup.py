@@ -1,26 +1,22 @@
-from setuptools import find_packages, setup
-#from typing import List
+from setuptools import setup, find_packages
 
-
-hyphen = '-e .'
-
-def get_requirements(file_path : str) -> list[str]:
-    ''' This function will return the list of requirements'''
-    requirements=[]
-    with open (file_path) as file_obj:
-        requirements = file_obj.readlines()
-        requirements=[require.replace("\n", "") for require in requirements]
+hyphon = "-e ."
+def get_requirements(file_path):
+    requirenments = []
+    with open(file_path, "r") as file_obj:
+        require = file_obj.readlines()
+        requirenments = [req.replace("\n", "") for req in require]
         
-        if hyphen in requirements:
-            requirements.remove(hyphen)
-    return requirements
-
+        if hyphon in requirenments:
+            requirenments.remove(hyphon)
+        
+        return requirenments
+    
 
 setup(
-name="ML_Project",
-version="0.1", 
-author="shivam_uppal",
-author_email="shivsen1997@gmail.com",
+name="ML_Projects",
+version= "0.0.1",
+author="shivsen1997@gmail.com",
 packages=find_packages(),
-install_requires = get_requirements("requirements.txt")
-) 
+requires= get_requirements("requirements.txt")
+)
